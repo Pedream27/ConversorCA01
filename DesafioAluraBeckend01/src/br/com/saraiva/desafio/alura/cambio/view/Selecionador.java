@@ -10,7 +10,8 @@ import br.com.saraiva.desafio.alura.cambio.modelo.Conversor;
 public class Selecionador {
 
 	double quantidade;
-	String moedas;
+	String util;
+	
 	Object[] escolhaDeConversor;
 
 	protected void Start() {
@@ -21,15 +22,38 @@ public class Selecionador {
 
 	private void startConvertorA() {
 		quantidade = inputQuantidade();
-		moedas = selecionarMoeda().toString();
-		double resultado = Conversor.Converter(moedas, quantidade);
-		caixaResultado(resultado);
+		util = selecionarMoeda().toString();
+		double resultado = Conversor.Converter(util, quantidade);
+		caixaResultado(resultado, "O valor da Conversão é de : R$");
 		Continuar();
 
 	}
 
 	private void startConvertorB() {
 		/// Em prodrução
+		util = selecionarT().toString();
+		quantidade = inputTemperatura();
+		double resultado = Conversor.Converter(util, quantidade);
+		caixaResultado(resultado, "Sua temperatura convertida é igual a  : ");
+		Continuar();
+		
+		
+	}
+	
+	private String selecionarT() {
+		Object[] escolhaDeConversor = { "Celsius para Fahrenheit",
+				"Fahrenheit para Celsius", "Celsius para Kelvin",
+				"Celsius para Reaumur", "Celsius para Rankine",};
+		Object selecionarMoeda = JOptionPane.showInputDialog(null, "Seleciona um: ", "Entrada",
+				JOptionPane.INFORMATION_MESSAGE, null, escolhaDeConversor, escolhaDeConversor[0]);
+
+		return selecionarMoeda.toString();
+		
+		
+		
+	}
+	private double inputTemperatura() {
+		return 0;
 	}
 
 	private Double inputQuantidade() {
@@ -77,14 +101,15 @@ public class Selecionador {
 
 	}
 
-	private void caixaResultado(double numero) {
+	private void caixaResultado(double numero , String txt) {
 		DecimalFormat df = new DecimalFormat("#,###.00");
 
-		String menssagem = "O valor da Conversão é de : R$" + df.format(numero);
-		;
+		String menssagem = txt + df.format(numero);
 		JOptionPane.showMessageDialog(null, menssagem, "Menssagem", 0);
 
 	}
+	
+	
 
 	public void Verifica(String resultado) {
 		boolean verifica = resultado.matches("[0-9]+");
@@ -117,3 +142,5 @@ public class Selecionador {
 	}
 
 }
+
+
