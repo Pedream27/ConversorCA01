@@ -6,6 +6,7 @@ import java.util.IllegalFormatCodePointException;
 import javax.swing.JOptionPane;
 
 import br.com.saraiva.desafio.alura.cambio.modelo.Conversor;
+import br.com.saraiva.desafio.alura.cambio.modelo.ConversorT;
 
 public class Selecionador {
 
@@ -33,7 +34,7 @@ public class Selecionador {
 		/// Em prodrução
 		util = selecionarT().toString();
 		quantidade = inputTemperatura();
-		double resultado = Conversor.Converter(util, quantidade);
+		double resultado = ConversorT.Converter(util, quantidade);
 		caixaResultado(resultado, "Sua temperatura convertida é igual a  : ");
 		Continuar();
 		
@@ -53,7 +54,15 @@ public class Selecionador {
 		
 	}
 	private double inputTemperatura() {
-		return 0;
+		String resultado = JOptionPane.showInputDialog("Insira A temperatura : ");
+		Verifica(resultado);
+		try {
+			quantidade = Double.parseDouble(resultado);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+
+		return quantidade;
 	}
 
 	private Double inputQuantidade() {
