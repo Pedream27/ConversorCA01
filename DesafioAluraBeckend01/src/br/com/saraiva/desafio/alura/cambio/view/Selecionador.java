@@ -29,12 +29,7 @@ public class Selecionador {
 	}
 
 	private void startConvertorB() {
-		quantidade = inputQuantidade();
-		moedas = selecionarMoeda().toString();
-		double resultado = Conversor.Converter(moedas, quantidade);
-		caixaResultado(resultado);
-		Continuar();
-
+		/// Em prodrução
 	}
 
 	private Double inputQuantidade() {
