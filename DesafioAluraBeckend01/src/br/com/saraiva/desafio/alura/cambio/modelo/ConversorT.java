@@ -1,27 +1,61 @@
 package br.com.saraiva.desafio.alura.cambio.modelo;
 
+import java.util.Iterator;
+
 public class ConversorT {
 
-	public static double Converter(String temperatura, double quantidade) {
-		double resultado;
-		
-		if (temperatura.toString().equals("Celsius para Fahrenheit")) {
-			resultado = (quantidade * 9/5) + 32;
-			return resultado;
-			
-		}else if (temperatura.toString().equals("Celsius para Kelvin")) {
-			resultado = quantidade + 273.15;
-			return resultado;
-		
-		}else if (temperatura.toString().equals("Celsius para Reaumur")) {
-			resultado = quantidade*4/5;
-			
-		}else if (temperatura.toString().equals("Celsius para Rankine")) {
-			resultado = (quantidade + 273.15) * 9/5 + 491.67;
-			return resultado;
-			
-		}
+	static double resultado;
 	
-		return 25.5;
+	public static double Converter(String temperatura, double quantidade) {
+		
+		for(Temperaturas temperaturas : Temperaturas.values()) {
+			if (temperaturas.get().equals(temperatura)) {
+				switch (temperaturas) {
+				case Fahrenheit:
+					
+					resultado = (quantidade * 9/5) + 32;
+					continue;
+		
+				case Kelvin:
+					
+					resultado = quantidade + 273.15;
+	
+					continue;
+				case Rankine:
+					
+					resultado = (quantidade + 273.15) * 9/5 + 491.67;;
+					continue;
+				case Reaumur:
+					
+					resultado = quantidade*4/5;
+					
+					continue;
+				}
+		 		
+			}
+		}
+			return resultado;
+		
 	}
+	
+	
+	
 }
+
+	
+	
+//	public static void main(String[] args) {
+	//String temperatura ="Celsius para Fahrenheit";		
+	
+	//switch (Temperaturas.valueOf(temperatura)) {
+	//case Fahrenheit:
+	//	System.out.println("teste");
+		
+	//	break;
+
+	
+		
+	//}
+//}
+
+

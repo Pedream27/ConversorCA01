@@ -1,48 +1,53 @@
 package br.com.saraiva.desafio.alura.cambio.modelo;
 
 public class Conversor {
-
-	public static double Converter(String moedas, double quantidade) {
-		double resultado;
-		if (moedas.equalsIgnoreCase("De Reais a Dólar")) {
-			resultado = quantidade / Cotacao.Dolar.getCotacao();
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Reais a Euro")) {
-			resultado = quantidade / Cotacao.Euro.getCotacao();
-			return resultado;
-
-		} else if (moedas.equalsIgnoreCase("De Reais a Libras Esterlinas")) {
-			resultado = quantidade / Cotacao.Libra.getCotacao();
-
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Reais a Peso argentino")) {
-			resultado = quantidade * Cotacao.PesoArgentino.getCotacao();
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Reais a Peso Chileno")) {
-			resultado = quantidade * Cotacao.PesoChilieno.getCotacao();
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Dólar a Reais")) {
-			resultado = quantidade / Cotacao.Dolar.getCotacao2();
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Euro a Reais")) {
-			resultado = quantidade / Cotacao.Euro.getCotacao2();
-			;
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Libras Esterlinas a Reais")) {
-			resultado = quantidade / Cotacao.Libra.getCotacao2();
-			;
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Pesos argentino a Reais")) {
-			resultado = quantidade / Cotacao.PesoArgentino.getCotacao2();
-			;
-			return resultado;
-		} else if (moedas.equalsIgnoreCase("De Peso chilenos a Reais")) {
-			resultado = quantidade / Cotacao.PesoChilieno.getCotacao2();
-			;
-			return resultado;
+	
+	static double resultado;
+		
+	public static double Converter(String moeda, double quantidade) {
+		
+		for(Cotacao cotacao : Cotacao.values()) {
+			if (cotacao.getDescricao().equals(moeda)) {
+				switch (cotacao) {
+				case Dolar:
+					
+					resultado = quantidade / Cotacao.Dolar.getCotacao();
+					continue;
+				case DolarY:
+					resultado = quantidade/Cotacao.DolarY.getCotacao();
+					continue;
+				case Euro:
+					resultado = quantidade/Cotacao.Euro.getCotacao();
+					continue;
+				case EuroY:
+					resultado = quantidade/Cotacao.EuroY.getCotacao();
+					continue;
+				case Libra:
+					resultado = quantidade/Cotacao.Libra.getCotacao();
+					continue;	
+				case LibraY:
+					resultado = quantidade/Cotacao.LibraY.getCotacao();
+					continue;
+				case PesoArgentino:
+					resultado = quantidade/Cotacao.PesoArgentino.getCotacao();
+					continue;
+				case PesoArgentinoY:
+					resultado = quantidade/ Cotacao.PesoArgentino.getCotacao();
+					continue;
+				case PesoChilieno:
+					resultado = quantidade/Cotacao.PesoChilieno.getCotacao();
+					continue;
+				case PesoChilenoY:
+					resultado = quantidade/Cotacao.PesoChilenoY.getCotacao();
+					continue;
+				}
+			
+				
+			}
 		}
+		return resultado;
+		
 
-		return -1;
 	}
 }
 

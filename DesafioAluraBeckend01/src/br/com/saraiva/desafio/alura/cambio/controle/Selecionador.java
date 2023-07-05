@@ -16,8 +16,14 @@ public class Selecionador {
 	Object[] escolhaDeConversor;
 
 	public void Start() {
-
-		selecionadorDeConversor();
+		try {
+			selecionadorDeConversor();
+		} catch (Exception e) {
+			Object txt = "Programa Finalizado";
+			JOptionPane.showMessageDialog(null, txt);
+			
+		}
+		
 
 	}
 
@@ -47,6 +53,7 @@ public class Selecionador {
 				"Celsius para Reaumur", "Celsius para Rankine",};
 		Object selecionarMoeda = JOptionPane.showInputDialog(null, "Seleciona um: ", "Entrada",
 				JOptionPane.INFORMATION_MESSAGE, null, escolhaDeConversor, escolhaDeConversor[0]);
+		
 
 		return selecionarMoeda.toString();
 		
@@ -93,7 +100,7 @@ public class Selecionador {
 	private void selecionadorDeConversor() {
 
 		Object[] escolhaDeConversor = { "Connversor de moeda", "Conversor de Temperatura" };
-
+		
 		Object selecionarConversor = JOptionPane.showInputDialog(null, "Seleciona um: ", "Entrada",
 				JOptionPane.INFORMATION_MESSAGE, null, escolhaDeConversor, escolhaDeConversor[0]);
 
