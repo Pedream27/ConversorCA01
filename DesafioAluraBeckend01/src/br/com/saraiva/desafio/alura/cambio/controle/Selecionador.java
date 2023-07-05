@@ -1,4 +1,4 @@
-package br.com.saraiva.desafio.alura.cambio.view;
+package br.com.saraiva.desafio.alura.cambio.controle;
 
 import java.text.DecimalFormat;
 import java.util.IllegalFormatCodePointException;
@@ -15,7 +15,7 @@ public class Selecionador {
 	
 	Object[] escolhaDeConversor;
 
-	protected void Start() {
+	public void Start() {
 
 		selecionadorDeConversor();
 
